@@ -6,11 +6,10 @@ import {
   updateVideo as updateVideoService,
 } from "../Services/api";
 
-const VideosContext = createContext();
 
-export const useVideoContext = () => {
-  return useContext(VideosContext);
-};
+const [VideosContext, useVideoContext] = [createContext(), () => useContext(VideosContext)]
+
+export {useVideoContext};
 
 export const VideoProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);

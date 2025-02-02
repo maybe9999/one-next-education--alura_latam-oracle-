@@ -3,10 +3,13 @@ import {
   CardActions,
   CardContainer,
   CardImage,
+  LiteYouTubeEmbedStyled,
   IconButton,
 } from "./Card.styled";
 
 import { useVideoContext } from "../../Contexts/VideoContext";
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+//import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 const Card = ({ video }) => {
   const { deleteVideo, updateVideo } = useVideoContext();
@@ -18,7 +21,14 @@ const Card = ({ video }) => {
 
   return (
     <CardContainer>
-      <CardImage src={video.img} alt={video.title} />
+      {/*<CardImage src={video.img} alt={video.title} />*/}
+      <LiteYouTubeEmbedStyled 
+      id={video.videoID}
+      thumbnail={video.img}
+      aspectHeight={6}
+      aspectWidth={12}
+      />
+      
       <CardActions>
         <IconButton onClick={() => deleteVideo(video.id)}>
           <FaTrashAlt />

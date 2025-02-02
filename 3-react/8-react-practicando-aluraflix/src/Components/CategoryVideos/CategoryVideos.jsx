@@ -12,9 +12,10 @@ const CategoryVideos = () => {
         <div key={category}>
           <CategoryTitle>{category}</CategoryTitle>
           <VideoList>
-            {videoCategory[category].map((video) => (
-              <Card key={video.id} video={video} />
-            ))}
+            {videoCategory[category].map((video) => {
+              console.log(video);
+              return <Card key={video.id} video={video} />;
+            })}
           </VideoList>
         </div>
       ))}

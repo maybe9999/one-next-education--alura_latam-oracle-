@@ -26,23 +26,11 @@ const NewVideo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addVideo(formData);
-    setFormData({
-      titulo: "",
-      categoria: "",
-      img: "",
-      video: "",
-      descricao: "",
-    });
+    handleReset()
   };
 
   const handleReset = () => {
-    setFormData({
-      titulo: "",
-      categoria: "",
-      img: "",
-      video: "",
-      descricao: "",
-    });
+    setFormData();
   };
 
   return (
@@ -52,7 +40,7 @@ const NewVideo = () => {
         type="text"
         name="titulo"
         placeholder="Título"
-        value={formData.titulo}
+        value={formData?.titulo || ''}
         onChange={handleChange}
         required
       />
@@ -60,7 +48,7 @@ const NewVideo = () => {
         type="text"
         name="categoria"
         placeholder="Categoria"
-        value={formData.categoria}
+        value={formData?.categoria || ''}
         onChange={handleChange}
         required
       />
@@ -68,7 +56,7 @@ const NewVideo = () => {
         type="text"
         name="img"
         placeholder="URL da Imagem"
-        value={formData.img}
+        value={formData?.img || ''}
         onChange={handleChange}
         required
       />
@@ -76,14 +64,14 @@ const NewVideo = () => {
         type="text"
         name="video"
         placeholder="URL do Vídeo"
-        value={formData.video}
+        value={formData?.video || ''}
         onChange={handleChange}
         required
       />
       <Textarea
         name="descricao"
         placeholder="Descrição"
-        value={formData.descricao}
+        value={formData?.descricao || ''}
         onChange={handleChange}
         required
       />

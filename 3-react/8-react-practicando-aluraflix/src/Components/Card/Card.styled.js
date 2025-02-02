@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 export const CardContainer = styled.div`
   position: relative;
@@ -14,10 +16,19 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const CardImage = styled.img`
+export const CardImage = styled.iframe`
   width: 100%;
   height: auto;
 `;
+
+export const LiteYouTubeEmbedStyled = styled(LiteYouTubeEmbed)`
+  .yt-lite {
+    width: 100%;
+    height: auto;
+    background-color: violet;
+  };
+`;
+
 
 export const CardActions = styled.div`
   position: absolute;
